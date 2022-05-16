@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<form action='' method='post' align='center'>
+
+    <h1>{{ name }}</h1>
+
+    {% for idx, item in items %}
+        <p align='center'>{{idx}}. {{item}} <input type='checkbox'> </p>
+    {% endfor %}
+
+</form>

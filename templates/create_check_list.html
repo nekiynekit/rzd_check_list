@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Новая смена
+        </title>
+    </head>
+    <body style="text-align: center;">
+        <h1>
+            Создайте чек-лист:
+        </h1>
+        <button onClick="GFG_Fun()">
+            Добавить пункт
+        </button>
+        <p id="GFG_DOWN"></p>
+        <script>
+            var down = document.getElementById("GFG_DOWN");
+                
+            // Create a break line element
+            var br = document.createElement("br");
+            function GFG_Fun() {
+                
+                if (document.getElementsByTagName('form').length > 0){
+                    var len = document.getElementsByTagName('form')[0].getElementsByTagName('input').length;
+                    document.getElementsByTagName('form')[0].getElementsByTagName('input')[len - 1].remove();
+
+                    var item = document.createElement("input");
+                    item.setAttribute("type", "text");
+                    item.setAttribute("name", "item"+(len-1));
+
+                    var s = document.createElement("input");
+                    s.setAttribute("type", "submit");
+                    s.setAttribute("value", "Submit");
+
+                    document.getElementsByTagName("form")[0].appendChild(item);
+                    document.getElementsByTagName("form")[0].appendChild(br.cloneNode());
+                    document.getElementsByTagName("form")[0].appendChild(s);
+                }
+                else{
+                        
+                    // Create a form dynamically
+                    var form = document.createElement("form");
+                    form.setAttribute("method", "post");
+
+                    var check_list_name = document.createElement("input");
+                    check_list_name.setAttribute("type", "text");
+                    check_list_name.setAttribute("name", "list_name");
+                    check_list_name.setAttribute("placeholder", "Введите название смены");
+                    check_list_name.setAttribute("required", true);
+                
+                    // Create an input element for Full Name
+                    var FN = document.createElement("input");
+                    FN.setAttribute("type", "text");
+                    FN.setAttribute("name", "item1");
+            
+                    // create a submit button
+                    var s = document.createElement("input");
+                    s.setAttribute("type", "submit");
+                    s.setAttribute("value", "Submit");
+
+                    form.appendChild(check_list_name);
+                    form.appendChild(br.cloneNode());
+                    form.appendChild(br.cloneNode());
+                    
+                    // Append the full name input to the form
+                    form.appendChild(FN);
+                    
+                    // Inserting a line break
+                    form.appendChild(br.cloneNode());
+
+                    form.appendChild(s);
+
+                    document.getElementsByTagName("body")[0].appendChild(form);
+                }
+            }
+        </script>
+    </body>
+</html>
